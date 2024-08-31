@@ -1,3 +1,4 @@
+const { json } = require('express');
 const MessageModel = require('../models/MessageModel');
 
 // Contrôleur pour gérer les messages
@@ -7,7 +8,8 @@ const addMessage = (req, res) => {
     if (err) {
       return res.status(500).json({ error: 'Erreur lors de l\'ajout du message' });
     }
-    res.status(201).json({ messageId });
+    
+    return JSON.parse({ messageId })
   });
 };
 
@@ -16,7 +18,7 @@ const getMessages = (req, res) => {
     if (err) {
       return res.status(500).json({ error: 'Erreur lors de la récupération des messages' });
     }
-    res.status(200).json(messages);
+    return JSON.parse(messages)
   });
 };
 
