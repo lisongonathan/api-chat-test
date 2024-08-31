@@ -15,7 +15,7 @@ const insertMessage = (message, userId, callback) => {
 
 // Fonction pour récupérer tous les messages
 const getMessages = (callback) => {
-  const sql = 'SELECT * FROM messages';
+  const sql = 'SELECT * FROM message';
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des messages :', err);
